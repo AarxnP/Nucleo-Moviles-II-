@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 function MyStack() {
-  return <Stack.Navigator >
+  return <Stack.Navigator>
     <Stack.Screen name="Welcome" component={WelcomeScreen} />
     <Stack.Screen name="Drawer" component={MyDrawer} />
   </Stack.Navigator>;
