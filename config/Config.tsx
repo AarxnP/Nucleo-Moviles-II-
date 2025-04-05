@@ -3,15 +3,14 @@ import { getDatabase } from "firebase/database"
 import { getAuth } from "firebase/auth"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD7vOPNUsrkxTDSERgsDyQnODXMGqMDJNs",
-  authDomain: "app-crud-cc090.firebaseapp.com",
-  databaseURL: "https://app-crud-cc090-default-rtdb.firebaseio.com",
-  projectId: "app-crud-cc090",
-  storageBucket: "app-crud-cc090.firebasestorage.app",
-  messagingSenderId: "917830128652",
-  appId: "1:917830128652:web:ffed483af10c3012a00a29"
+  apiKey: "AIzaSyAJXfNert9jqy-8PXBAAJbLKsmrejXnMmU",
+  authDomain: "app--1-bc5b0.firebaseapp.com",
+  databaseURL: "https://app--1-bc5b0-default-rtdb.firebaseio.com",
+  projectId: "app--1-bc5b0",
+  storageBucket: "app--1-bc5b0.firebasestorage.app",
+  messagingSenderId: "749821222726",
+  appId: "1:749821222726:web:f1f971e0a962b49b4a8f47"
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);

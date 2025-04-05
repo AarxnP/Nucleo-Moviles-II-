@@ -1,60 +1,62 @@
-import { Alert, Button, StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
-import { TextInput } from 'react-native-gesture-handler'
-import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../config/Config'
+import { StyleSheet, Text, View, TouchableOpacity, ImageBackground } from 'react-native'
+import React from 'react'
 
-export default function WelcomeScreen( {navigation}: any ) {
-  const [email, setemail] = useState("")
-  const [contrasenia, setcontrasenia] = useState("")
-
-  function login() {
-    signInWithEmailAndPassword(auth, email, contrasenia)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        navigation.navigate("Drawer")
-        console.log(user.uid);
-        
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        Alert.alert(errorCode, errorMessage)
-      });
-
-  }
-
-
+export default function WelcomeScreen({ navigation }: any) {
   return (
-    <View>
-      <Text>Welcome - LOGIN</Text>
+    <ImageBackground
+      source={{ uri: 'https://i.pinimg.com/originals/58/84/b8/5884b893f02fd51b1bc6fe49d43bb9a5.jpg' }} // Fondo estilo videojuego
+      style={styles.background}
+      resizeMode="cover"
+    >
+      <View style={styles.container}>
+        <Text style={styles.title}>🎮 GAME ZONE 🎮</Text>
 
-      <TextInput
-        placeholder='Ingresar email'
-        style={styles.input}
-        onChangeText={(texto) => setemail(texto)}
-        value={email}
-      />
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.buttonText}>LOGIN</Text>
+        </TouchableOpacity>
 
-      <TextInput
-        placeholder='Ingresar contrasenia'
-        style={styles.input}
-        onChangeText={(texto) => setcontrasenia(texto)}
-        value={contrasenia}
-      />
-
-      <Button title='login' onPress={()=> login()}/>
-
-    </View>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Registro')}>
+          <Text style={styles.buttonText}>REGISTRO</Text>
+        </TouchableOpacity>
+      </View>
+    </ImageBackground>
   )
 }
 
 const styles = StyleSheet.create({
-  input: {
-    borderWidth: 2,
-    margin: 10,
-    fontSize: 20
-  }
+  background: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  container: {
+    alignItems: 'center',
+    padding: 20,
+  },
+  title: {
+    fontSize: 38,
+    color: '#fff',
+    fontWeight: 'bold',
+    marginBottom: 40,
+    textShadowColor: '#000',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
+  },
+  button: {
+    backgroundColor: '#ff0066',
+    paddingVertical: 20,
+    paddingHorizontal: 60,
+    borderRadius: 20,
+    marginVertical: 15,
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 3, height: 3 },
+    shadowOpacity: 0.8,
+    shadowRadius: 4,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 22,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 })
