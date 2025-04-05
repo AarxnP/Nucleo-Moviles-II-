@@ -3,11 +3,11 @@ import React from 'react'
 
 export default function WelcomeScreen({ navigation }: any) {
   return (
-    <ImageBackground
-      source={{ uri: 'https://i.pinimg.com/originals/58/84/b8/5884b893f02fd51b1bc6fe49d43bb9a5.jpg' }} // Fondo estilo videojuego
-      style={styles.background}
-      resizeMode="cover"
-    >
+    // <ImageBackground
+    //   source={{ uri: 'https://i.pinimg.com/originals/58/84/b8/5884b893f02fd51b1bc6fe49d43bb9a5.jpg' }} // Fondo estilo videojuego
+    //   style={styles.background}
+    //   resizeMode="cover"
+    // >
       <View style={styles.container}>
         <Text style={styles.title}>🎮 GAME ZONE 🎮</Text>
 
